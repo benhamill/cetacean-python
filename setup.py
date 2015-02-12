@@ -18,6 +18,6 @@ up your own Requests client and use it to make requests. You feed Cetacean
 Requests response objects and it helps you figure out if they're HAL documents
 and pull useful data out of them if they are.
 """,
-    py_modules=["ceatacean"],
+    py_modules=["cetacean"],
     classifiers=[],
 )
