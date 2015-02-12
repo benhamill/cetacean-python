@@ -10,9 +10,11 @@ and pull useful data out of them if they are.
 
 from setuptools import setup
 
+import cetacean
+
 setup(
     name="Cetacean",
-    version="0.0.1",
+    version=cetacean.__version__,
     author="Ben Hamill",
     author_email="ben@benhamill.com",
     url="http://github.com/benhamill/cetacean-python#readme",
