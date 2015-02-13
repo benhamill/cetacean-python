@@ -22,6 +22,14 @@ TODO: Write usage instructions here
 If you'd like to contribute, please see the [contribution guidelines](CONTRIBUTING.md).
 
 
+### Tests
+
+```
+$ pip install -r requirements.txt && python setup.py develop
+$ mamba
+```
+
+
 ## Releasing
 
 Maintainers: Please make sure to follow the [release steps](RELEASING.md) when
