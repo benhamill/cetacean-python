@@ -18,7 +18,7 @@ class Response(Resource):
         """
         self._response = response
         self._hal_regex = re.compile(r"application/hal\+json")
-        self._hal = None
+        self._parsed_hal = None
 
     def is_hal(self):
         """Test if a response was a HAL document or not.
@@ -32,20 +32,27 @@ class Response(Resource):
         :returns: A parsed HAL body (dicts and lists) or an empty dictionary.
 
         """
-        if self._hal != None: return self._hal
+        if self._parsed_hal != None: return self._parsed_hal
 
-        self._hal = _parse_hal()
+        self._parsed_hal = self._parse_hal()
 
-        return self._hal
+        return self._parsed_hal
 
     def _parse_hal(self):
         """Parses the JSON body of the response.
         :returns: A parsed JSON body (dicts and lists) or an empty dictionary.
 
         """
-        if not is_hal(): return {}
+        if not self.is_hal(): return {}
 
         try:
             return json.loads(self._response.content)
         except ValueError, e:
             return {}
+
+    def _links(self):
+        """Return the links part of the HAL document.
+        :returns: A dictionary of the links or an empty dictionary.
+
+        """
+        return self._hal()['_links'] if '_links' in self._hal() else {}

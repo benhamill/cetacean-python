@@ -32,7 +32,7 @@ with describe("Cetacean"):
                 content_type="application/hal+json",
                 body=json.dumps(
                     {
-                       ' _links': {
+                       '_links': {
                             'self': { 'href': '/' },
                         },
                         'api_ranking': 'the best',

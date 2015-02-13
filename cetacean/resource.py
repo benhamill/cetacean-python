@@ -11,6 +11,6 @@ class Resource(object):
         :returns: A string that is the URI in question.
 
         """
-        return unless links.include?(rel.to_s)
+        if unicode(rel) not in self._links(): return None
 
-        URITemplate.new(links[rel.to_s]['href'])
+        return self._links()[unicode(rel)]['href']
