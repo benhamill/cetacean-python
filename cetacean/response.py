@@ -21,4 +21,4 @@ class Response(object):
         :returns: True or False
 
         """
-        return self._hal_regex.match(self._response.headers['content-type'])
+        return bool(self._hal_regex.match(self._response.headers['content-type']))
