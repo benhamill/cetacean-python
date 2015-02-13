@@ -14,9 +14,6 @@ __version__ = "0.0.1"
 import re
 
 class Cetacean(object):
-    pass
-
-class Cetacean(object):
 
     """The HAL client that does almost nothing for you."""
 
