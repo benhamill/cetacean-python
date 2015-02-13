@@ -54,6 +54,11 @@ with describe("Cetacean"):
 
             expect(subject).to(be_hal())
 
+        with it("can find links by rel"):
+            subject = Cetacean(requests.get("http://api.example.com"))
+
+            expect(subject.get_uri('self')).to(equal('/'))
+
     with context("when fed invalid HAL"):
         with before.each:
             httpretty.register_uri(
