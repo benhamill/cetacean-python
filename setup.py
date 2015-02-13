@@ -18,7 +18,7 @@ setup(
     author="Ben Hamill",
     author_email="ben@benhamill.com",
     url="http://github.com/benhamill/cetacean-python#readme",
-    licens="MIT",
+    license="MIT",
     description="The HAL client that does almost nothing for you.",
     long_description=__doc__,
     py_modules=["cetacean"],
