@@ -14,7 +14,22 @@ are.
 
 ## Usage
 
-TODO: Write usage instructions here
+Something like this:
+
+```python
+import requests
+from cetacean import Cetacean
+
+root = Cetacean(requests.get("http://api.example.com/"))
+users = Cetacean(requests.get(root.get_uri))
+user = users.embedded('users')[0]
+
+important_blog_post = Cetacean(requests.get(user.expand_uri('post', { 'id': 2 })))
+
+interesting_blog_posts = Cetacean(requests.get(user.expand_uri('search_posts', { 'q': 'interesting' })))
+```
+
+Check out the specs for more detailed uses.
 
 
 ## Contributing
