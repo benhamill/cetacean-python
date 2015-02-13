@@ -9,6 +9,8 @@ Requests response objects and it helps you figure out if they're HAL documents
 and pull useful data out of them if they are.
 """
 
+from response import Response
+
 __version__ = "0.0.1"
 
 def Cetacean(response):
