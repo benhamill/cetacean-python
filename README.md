@@ -18,15 +18,26 @@ Something like this:
 
 ```python
 import requests
+import uritemplate
 from cetacean import Cetacean
 
-root = Cetacean(requests.get("http://api.example.com/"))
-users = Cetacean(requests.get(root.get_uri))
+base_url = "http://api.example.com"
+root = Cetacean(requests.get(base_url))
+users = Cetacean(requests.get(base_url + root.get_uri('users')))
 user = users.embedded('users')[0]
 
-important_blog_post = Cetacean(requests.get(user.expand_uri('post', { 'id': 2 })))
+blog_post_template = user.get_uri('post')
+blog_post_path = uritemplate.expand(blog_post_template, {'id': 2})
+blog_post_url = base_url + blog_post_path
 
-interesting_blog_posts = Cetacean(requests.get(user.expand_uri('search_posts', { 'q': 'interesting' })))
+important_blog_post = Cetacean(requests.get(blog_post_url))
+
+
+search_template = user.get_uri('search_posts')
+search_path = uritemplate.expand(search_template, {'q': 'interesting'})
+search_url = base_url + search_path
+
+interesting_blog_posts = Cetacean(requests.get(search_path))
 ```
 
 Check out the specs for more detailed uses.
