@@ -73,6 +73,11 @@ with describe("Cetacean"):
 
             expect(subject).to(be_hal())
 
+        with it("can't find links by rel"):
+            subject = Cetacean(requests.get("http://api.example.com"))
+
+            expect(subject.get_uri('self')).to(be(None))
+
     with context("when fed non-HAL"):
         with before.each:
             httpretty.register_uri(
@@ -86,3 +91,8 @@ with describe("Cetacean"):
             subject = Cetacean(requests.get("http://api.example.com"))
 
             expect(subject).not_to(be_hal())
+
+        with it("can't find links by rel"):
+            subject = Cetacean(requests.get("http://api.example.com"))
+
+            expect(subject.get_uri('self')).to(be(None))
