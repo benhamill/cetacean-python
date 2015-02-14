@@ -59,6 +59,27 @@ with describe("Cetacean"):
 
             expect(subject.get_uri('self')).to(equal('/'))
 
+        with _it("hands out the links hash"):
+            pass
+
+        with _it("allows access to attributes with []"):
+            pass
+
+        with _it("hands out a hash of attributes"):
+            pass
+
+        with _it("lists embedded resources"):
+            pass
+
+        with _it("handles singular embedded resources"):
+            pass
+
+        with _it("handles plural embedded resources"):
+            pass
+
+        with _it("allows index access on plural embedded resources"):
+            pass
+
     with context("when fed invalid HAL"):
         with before.each:
             httpretty.register_uri(
