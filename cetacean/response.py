@@ -27,6 +27,7 @@ class Response(Resource):
         """
         return bool(self._hal_regex.match(self._response.headers['content-type']))
 
+    @property
     def _hal(self):
         """Returns the parsed HAL body of the response
         :returns: A parsed HAL body (dicts and lists) or an empty dictionary.
@@ -49,10 +50,3 @@ class Response(Resource):
             return json.loads(self._response.content)
         except ValueError, e:
             return {}
-
-    def _links(self):
-        """Return the links part of the HAL document.
-        :returns: A dictionary of the links or an empty dictionary.
-
-        """
-        return self._hal()['_links'] if '_links' in self._hal() else {}

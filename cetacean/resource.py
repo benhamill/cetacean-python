@@ -11,6 +11,15 @@ class Resource(object):
         :returns: A string that is the URI in question.
 
         """
-        if unicode(rel) not in self._links(): return None
+        if unicode(rel) not in self.links: return None
 
-        return self._links()[unicode(rel)]['href']
+        return self.links[unicode(rel)]['href']
+
+
+    @property
+    def links(self):
+        """Return the links part of the HAL document.
+        :returns: A dictionary of the links or an empty dictionary.
+
+        """
+        return self._hal['_links'] if '_links' in self._hal else {}

@@ -59,8 +59,10 @@ with describe("Cetacean"):
 
             expect(subject.get_uri('self')).to(equal('/'))
 
-        with _it("hands out the links hash"):
-            pass
+        with it("hands out the links hash"):
+            subject = Cetacean(requests.get("http://api.example.com"))
+
+            expect(subject.links).to(equal({ 'self': { 'href': '/' } }))
 
         with _it("allows access to attributes with []"):
             pass
