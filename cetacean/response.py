@@ -10,6 +10,8 @@ class Response(Resource):
 
     """Represents an HTTP response that is hopefully a HAL document."""
 
+    _hal_regex = re.compile(r"application/hal\+json")
+
     def __init__(self, response):
         """Pass it a Requests response object.
 
@@ -17,7 +19,6 @@ class Response(Resource):
 
         """
         self._response = response
-        self._hal_regex = re.compile(r"application/hal\+json")
         self._parsed_hal = None
 
     def is_hal(self):
