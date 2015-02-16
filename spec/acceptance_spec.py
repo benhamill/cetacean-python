@@ -43,7 +43,7 @@ with describe("Cetacean"):
         with it("allows access to attributes with []"):
             expect(self.subject['api_ranking']).to(equal('the best'))
 
-        with _it("alloqws access to attributes with get()"):
+        with _it("allows access to attributes with get()"):
             pass
 
         with _it("does defaulting on attribute get()s"):
