@@ -1,15 +1,12 @@
 # encoding: utf-8
 
 import json
-import re
 
 from .resource import Resource
 
 class Response(Resource):
 
     """Represents an HTTP response that is hopefully a HAL document."""
-
-    _hal_regex = re.compile(r"application/hal\+json")
 
     def __init__(self, raw):
         """Pass it a string containing HAL.
