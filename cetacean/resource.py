@@ -28,8 +28,7 @@ class Resource(object):
 
     @property
     def links(self):
-        """Return the links part of the HAL document.
-        :returns: A dictionary of the links or an empty dictionary.
+        """The links part of the HAL document.
 
         """
         return self._hal['_links'] if '_links' in self._hal else {}
