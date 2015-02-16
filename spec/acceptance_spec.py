@@ -58,29 +58,6 @@ with describe("Cetacean"):
         with _it("allows index access on plural embedded resources"):
             pass
 
-    with context("when fed JSON that isn't HAL"):
-        with before.each:
-            self.subject = json.dumps(
-                {
-                    'api_ranking': 'the best',
-                    '_embedded': {
-                        'singular': {
-                            '_links': { 'self': { 'href': '/singular' } }
-                        },
-                        'plural': [
-                            { '_links': { 'self': { 'href': '/plural/1' } } },
-                            { '_links': { 'self': { 'href': '/plural/2' } } },
-                        ]
-                    }
-                }
-            )
-
-        with it("raises an error"):
-            try:
-                Cetacean(self.subject)
-            except Exception, e:
-                expect(e).to(be_a(ValueError))
-
     with context("when fed non-JSON"):
         with it("raises an error"):
             try:
