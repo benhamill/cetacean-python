@@ -5,14 +5,8 @@ import json
 
 from cetacean import Cetacean
 
-from expects.matchers import Matcher
-
-class be_hal(Matcher):
-    def _match(self, response):
-        return response.is_hal()
-
 with describe("Cetacean"):
-    with context("when fed a valid HAL response"):
+    with context("when fed a valid HAL document"):
         with before.each:
             self.subject = Cetacean(
                 json.dumps(
