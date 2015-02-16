@@ -46,8 +46,8 @@ with describe("Cetacean"):
         with it("allows access to attributes with get()"):
             expect(self.subject.get('api_ranking')).to(equal('the best'))
 
-        with _it("does defaulting on attribute get()s"):
-            pass
+        with it("does defaulting on attribute get()s"):
+            expect(self.subject.get('not_an_attribute', 'default')).to(equal('default'))
 
         with _it("hands out a hash of attributes"):
             pass

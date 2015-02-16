@@ -40,9 +40,9 @@ class Resource(object):
         """
         return self._hal[attribute_name]
 
-    def get(self, attribute_name):
+    def get(self, *args):
         """Access to the attributes of the resouse. Like a dictionary.
         :returns: The value of the attribute or None.
 
         """
-        return self._hal.get(attribute_name)
+        return self._hal.get(*args)
