@@ -2,10 +2,9 @@
 """
 The HAL client that does almost nothing for you.
 
-Cetacean is tightly coupled to Requests, but doesn't actually call it. You set
-up your own Requests client and use it to make requests. You feed Cetacean
-Requests response objects and it helps you figure out if they're HAL documents
-and pull useful data out of them if they are.
+Cetacean doesn't know about HTTP. You set up your own Requests client and use it
+to make requests. You feed then Cetacean the decoded bodies as strings and it
+helps you pull useful data out of them.
 """
 
 from setuptools import setup

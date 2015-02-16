@@ -2,21 +2,29 @@
 """
 The HAL client that does almost nothing for you.
 
-Cetacean is tightly coupled to Requests, but doesn't actually call it. You set
-up your own Requests client and use it to make requests. You feed Cetacean
-Requests response objects and it helps you figure out if they're HAL documents
-and pull useful data out of them if they are.
+Cetacean doesn't know about HTTP. You set up your own Requests client and use it
+to make requests. You feed then Cetacean the decoded bodies as strings and it
+helps you pull useful data out of them.
 """
 
-from response import Response
+import json
+
+from resource import Resource
 
 __version__ = "0.0.1"
 
-def Cetacean(response):
-    """Feed me a response object from the Requests library.
+def Cetacean(raw):
+    """Feed me a string containing HAL.
 
-    :response: a requests.models.Response
-    :returns: a cetacean.Response
+    :raw: a string containing a HAL document.
+    :returns: a cetacean.Resource
 
     """
-    return Response(response)
+    return Resource(raw)
+
+def _parse_hal(raw):
+    """Parses the JSON body of a response.
+    :returns: A parsed JSON body (dicts and lists).
+
+    """
+    return json.loads(raw)
