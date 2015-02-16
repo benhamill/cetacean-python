@@ -31,7 +31,7 @@ with describe("Cetacean"):
         with it("can find links by rel"):
             expect(self.subject.get_uri('self')).to(equal('/'))
 
-        with it("hands out the links hash"):
+        with it("hands out the links dict"):
             expect(self.subject.links).to(equal({ 'self': { 'href': '/' } }))
 
         with it("allows access to attributes with []"):
@@ -43,7 +43,7 @@ with describe("Cetacean"):
         with it("does defaulting on attribute get()s"):
             expect(self.subject.get('not_an_attribute', 'default')).to(equal('default'))
 
-        with it("hands out a hash of attributes"):
+        with it("hands out a dict of attributes"):
             expect(self.subject.attributes).to(equal({'api_ranking': 'the best'}))
 
         with _it("lists embedded resources"):
