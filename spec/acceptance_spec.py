@@ -40,8 +40,8 @@ with describe("Cetacean"):
         with it("hands out the links hash"):
             expect(self.subject.links).to(equal({ 'self': { 'href': '/' } }))
 
-        with _it("allows access to attributes with []"):
-            pass
+        with it("allows access to attributes with []"):
+            expect(self.subject['api_ranking']).to(equal('the best'))
 
         with _it("alloqws access to attributes with get()"):
             pass

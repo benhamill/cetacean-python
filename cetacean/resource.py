@@ -32,3 +32,10 @@ class Resource(object):
 
         """
         return self._hal['_links'] if '_links' in self._hal else {}
+
+    def __getitem__(self, attribute_name):
+        """Access to the attributes of the resource.
+        :returns: The value of the attribute.
+
+        """
+        return self._hal[attribute_name]
