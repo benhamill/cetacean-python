@@ -11,42 +11,17 @@ class Response(Resource):
 
     _hal_regex = re.compile(r"application/hal\+json")
 
-    def __init__(self, response):
-        """Pass it a Requests response object.
+    def __init__(self, raw):
+        """Pass it a string containing HAL.
 
-        :response: A response object from the Requests library.
-
-        """
-        self._response = response
-        self._parsed_hal = None
-
-    def is_hal(self):
-        """Test if a response was a HAL document or not.
-        :returns: True or False
+        :raw: A string containing a HAL document.
 
         """
-        return bool(self._hal_regex.match(self._response.headers['content-type']))
+        self._hal = self._parse_hal(raw)
 
-    @property
-    def _hal(self):
-        """Returns the parsed HAL body of the response
-        :returns: A parsed HAL body (dicts and lists) or an empty dictionary.
-
-        """
-        if self._parsed_hal != None: return self._parsed_hal
-
-        self._parsed_hal = self._parse_hal()
-
-        return self._parsed_hal
-
-    def _parse_hal(self):
+    def _parse_hal(self, raw):
         """Parses the JSON body of the response.
         :returns: A parsed JSON body (dicts and lists) or an empty dictionary.
 
         """
-        if not self.is_hal(): return {}
-
-        try:
-            return json.loads(self._response.content)
-        except ValueError, e:
-            return {}
+        return json.loads(raw)

@@ -1,4 +1,2 @@
-requests>=2.5.1
-httpretty>=0.8.4
 expects>=0.6.2
 mamba>=0.8.3
