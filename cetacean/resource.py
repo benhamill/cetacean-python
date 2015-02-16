@@ -41,7 +41,8 @@ class Resource(object):
         """
         if self._attributes != None: return self._attributes
 
-        self._attributes = { key: self._hal[key] for key in self._hal.keys() if key not in ['_links', '_embedded'] }
+        self._attributes = {key: self._hal[key] for key in self._hal.keys()
+                if key not in ['_links', '_embedded']}
 
         return self._attributes
 
