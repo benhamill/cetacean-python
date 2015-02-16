@@ -43,6 +43,12 @@ with describe("Cetacean"):
         with _it("allows access to attributes with []"):
             pass
 
+        with _it("alloqws access to attributes with get()"):
+            pass
+
+        with _it("does defaulting on attribute get()s"):
+            pass
+
         with _it("hands out a hash of attributes"):
             pass
 
