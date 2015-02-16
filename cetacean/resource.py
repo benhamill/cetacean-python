@@ -4,6 +4,7 @@ import cetacean
 class Resource(object):
 
     """Respresents a HAL resource."""
+    _attributes = None
 
     def __init__(self, raw):
         """Pass it a string containing HAL.
@@ -32,6 +33,17 @@ class Resource(object):
 
         """
         return self._hal['_links'] if '_links' in self._hal else {}
+
+    @property
+    def attributes(self):
+        """A dicxtionary of just the attributes (not _links or _embedded).
+
+        """
+        if self._attributes != None: return self._attributes
+
+        self._attributes = { key: self._hal[key] for key in self._hal.keys() if key not in ['_links', '_embedded'] }
+
+        return self._attributes
 
     def __getitem__(self, attribute_name):
         """Access to the attributes of the resource. Like a dictionary.

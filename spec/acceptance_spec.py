@@ -43,8 +43,8 @@ with describe("Cetacean"):
         with it("does defaulting on attribute get()s"):
             expect(self.subject.get('not_an_attribute', 'default')).to(equal('default'))
 
-        with _it("hands out a hash of attributes"):
-            pass
+        with it("hands out a hash of attributes"):
+            expect(self.subject.attributes).to(equal({'api_ranking': 'the best'}))
 
         with _it("lists embedded resources"):
             pass
