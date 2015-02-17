@@ -63,3 +63,12 @@ class Resource(object):
 
         """
         return self._hal.get(*args)
+
+    def embedded(self, rel=None):
+        """Get an embedded resource or all the embedded resources.
+
+        :rel: Optional rel for the resource to get.
+        :returns: A HAL document or a list of HAL documents.
+
+        """
+        if rel == None: return self._hal['_embedded']

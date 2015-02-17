@@ -46,8 +46,8 @@ with describe("Cetacean"):
         with it("hands out a dict of attributes"):
             expect(self.subject.attributes).to(equal({'api_ranking': 'the best'}))
 
-        with _it("lists embedded resources"):
-            pass
+        with it("lists embedded resources"):
+            expect(self.subject.embedded()).to(have_keys('singular', 'plural'))
 
         with _it("handles singular embedded resources"):
             pass
