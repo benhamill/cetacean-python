@@ -11,6 +11,7 @@ import json
 
 from .resource import Resource
 from .embedded_resource import EmbeddedResource
+from .embedded_resource_collection import EmbeddedResourceCollection
 
 __version__ = "0.0.1"
 

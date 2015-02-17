@@ -78,4 +78,7 @@ class Resource(object):
 
         document = self.embedded()[rel]
 
-        return cetacean.EmbeddedResource(document)
+        if document.__class__ == list:
+            return cetacean.EmbeddedResourceCollection(document)
+        else:
+            return cetacean.EmbeddedResource(document)

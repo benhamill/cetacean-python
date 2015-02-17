@@ -52,11 +52,12 @@ with describe("Cetacean"):
         with it("handles singular embedded resources"):
             expect(self.subject.embedded('singular').get_uri('self')).to(equal('/singular'))
 
-        with _it("handles plural embedded resources"):
-            pass
+        with it("handles plural embedded resources"):
+            for index, plur in enumerate(self.subject.embedded('plural')):
+                expect(plur.get_uri('self')).to(equal('/plural/{}'.format(index + 1)))
 
-        with _it("allows index access on plural embedded resources"):
-            pass
+        with it("allows index access on plural embedded resources"):
+            expect(self.subject.embedded('plural')[0].get_uri('self')).to(equal('/plural/1'))
 
     with context("when fed non-JSON"):
         with it("raises an error"):
