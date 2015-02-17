@@ -1,5 +1,4 @@
 # encoding: utf-8
-# from .context import cetacean
 from expects import *
 import json
 
