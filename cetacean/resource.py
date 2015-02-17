@@ -72,3 +72,10 @@ class Resource(object):
 
         """
         if rel == None: return self._hal['_embedded']
+
+        if sys.version_info.major == 2:
+            rel = unicode(rel)
+
+        document = self.embedded()[rel]
+
+        return cetacean.EmbeddedResource(document)

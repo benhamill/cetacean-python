@@ -49,8 +49,8 @@ with describe("Cetacean"):
         with it("lists embedded resources"):
             expect(self.subject.embedded()).to(have_keys('singular', 'plural'))
 
-        with _it("handles singular embedded resources"):
-            pass
+        with it("handles singular embedded resources"):
+            expect(self.subject.embedded('singular').get_uri('self')).to(equal('/singular'))
 
         with _it("handles plural embedded resources"):
             pass

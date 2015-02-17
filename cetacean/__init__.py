@@ -10,6 +10,7 @@ helps you pull useful data out of them.
 import json
 
 from .resource import Resource
+from .embedded_resource import EmbeddedResource
 
 __version__ = "0.0.1"
 
