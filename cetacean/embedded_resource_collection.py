@@ -1,8 +1,9 @@
 # encoding: utf-8
 
+import collections
 import cetacean
 
-class EmbeddedResourceCollection(object):
+class EmbeddedResourceCollection(collections.Sequence):
 
     """Represents a list of embedded HAL resources"""
 
@@ -21,3 +22,9 @@ class EmbeddedResourceCollection(object):
 
         """
         return cetacean.EmbeddedResource(self._document_list[index])
+
+    def __len__(self):
+        """Get the length of the collection. List a list.
+
+        """
+        return len(self._document_list)
