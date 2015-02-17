@@ -80,7 +80,7 @@ class Resource(collections.Mapping):
 
         document = self.embedded()[rel]
 
-        if isinstance(document, list):
-            return cetacean.EmbeddedResourceCollection(document)
-        else:
+        if isinstance(document, collections.Mapping):
             return cetacean.EmbeddedResource(document)
+        else:
+            return cetacean.EmbeddedResourceCollection(document)
