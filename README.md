@@ -1,7 +1,7 @@
 > Everything the system does *for* you, the system also does *to* you.
 > <br>—Don Leaver
 
-# Cetacean
+# Cetacean [![Build Status](https://travis-ci.org/benhamill/cetacean-python.svg?branch=master)](https://travis-ci.org/benhamill/cetacean-python)
 
 The [HAL](http://stateless.co/hal_specification.html) client that does almost
 nothing for/to you.
