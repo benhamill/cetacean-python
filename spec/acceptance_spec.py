@@ -62,5 +62,5 @@ with describe("Cetacean"):
         with it("raises an error"):
             try:
                 Cetacean("<html></html>")
-            except Exception, e:
+            except Exception as e:
                 expect(e).to(be_a(ValueError))

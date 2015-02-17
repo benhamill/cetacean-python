@@ -1,4 +1,5 @@
 # encoding: utf-8
+import sys
 import cetacean
 
 class Resource(object):
@@ -22,9 +23,12 @@ class Resource(object):
         :returns: A string that is the URI in question.
 
         """
-        if unicode(rel) not in self.links: return None
+        if sys.version_info.major == 2:
+            rel = unicode(rel)
 
-        return self.links[unicode(rel)]['href']
+        if rel not in self.links: return None
+
+        return self.links[rel]['href']
 
 
     @property
@@ -41,7 +45,7 @@ class Resource(object):
         """
         if self._attributes != None: return self._attributes
 
-        self._attributes = dict((key, val) for key, val in self._hal.iteritems()
+        self._attributes = dict((key, val) for key, val in self._hal.items()
                 if key not in ['_links', '_embedded'])
 
         return self._attributes
