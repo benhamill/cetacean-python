@@ -53,7 +53,7 @@ with describe("Cetacean"):
 
         with it("handles plural embedded resources"):
             for index, plur in enumerate(self.subject.embedded('plural')):
-                expect(plur.get_uri('self')).to(equal('/plural/{}'.format(index + 1)))
+                expect(plur.get_uri('self')).to(equal('/plural/{0}'.format(index + 1)))
 
         with it("allows index access on plural embedded resources"):
             expect(self.subject.embedded('plural')[0].get_uri('self')).to(equal('/plural/1'))

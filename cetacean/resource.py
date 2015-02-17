@@ -24,7 +24,9 @@ class Resource(collections.Mapping):
         :returns: A string that is the URI in question.
 
         """
-        if sys.version_info.major == 2:
+        # if sys.version_info.major == 2:
+        # Freakin' 2.6... :fistshake:
+        if sys.version_info[0] == 2:
             rel = unicode(rel)
 
         if rel not in self.links: return None
@@ -75,7 +77,9 @@ class Resource(collections.Mapping):
         """
         if rel == None: return self._hal['_embedded']
 
-        if sys.version_info.major == 2:
+        # if sys.version_info.major == 2:
+        # Freakin' 2.6... :fistshake:
+        if sys.version_info[0] == 2:
             rel = unicode(rel)
 
         document = self.embedded()[rel]
