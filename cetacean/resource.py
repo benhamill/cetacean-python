@@ -1,8 +1,9 @@
 # encoding: utf-8
 import sys
+import collections
 import cetacean
 
-class Resource(object):
+class Resource(collections.Mapping):
 
     """Respresents a HAL resource."""
     _attributes = None
@@ -57,12 +58,13 @@ class Resource(object):
         """
         return self._hal[attribute_name]
 
-    def get(self, *args):
-        """Access to the attributes of the resouse. Like a dictionary.
-        :returns: The value of the attribute or None.
+    def __iter__(self):
+        """Iterate over the items in the document. Like a dictionary."""
+        return self._hal.__iter__()
 
-        """
-        return self._hal.get(*args)
+    def __len__(self):
+        """The length of the document. Like a dictionary."""
+        return len(self._hal)
 
     def embedded(self, rel=None):
         """Get an embedded resource or all the embedded resources.
