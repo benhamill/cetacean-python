@@ -11,5 +11,5 @@ If you want to push a new version of this gem, do this:
 1. Go into CHANGES.md and change the "Unlreleased" heading to match the new
    version number.
 1. Commit these changes with a message like, "Minor version bump," or similar.
-1. Run `rake release`.
+1. Run `./release`.
 1. High five someone nearby.
