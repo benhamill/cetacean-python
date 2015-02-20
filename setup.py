@@ -21,5 +21,14 @@ setup(
     description="The HAL client that does almost nothing for you.",
     long_description=__doc__,
     py_modules=["cetacean"],
-    classifiers=[],
+    classifiers=[
+        "Development Status :: 5 - Production/Stable",
+        "Environment :: Web Environment",
+        "Intended Audience :: Developers",
+        "License :: OSI Approved :: MIT License",
+        "Programming Language :: Python :: 2.6",
+        "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 3.4",
+        "Topic :: Internet :: WWW/HTTP",
+    ],
 )
