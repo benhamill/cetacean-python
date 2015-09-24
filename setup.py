@@ -7,7 +7,7 @@ to make requests. You feed then Cetacean the decoded bodies as strings and it
 helps you pull useful data out of them.
 """
 
-from setuptools import setup
+from setuptools import setup, find_packages
 
 import cetacean
 
@@ -20,7 +20,7 @@ setup(
     license="MIT",
     description="The HAL client that does almost nothing for you.",
     long_description=__doc__,
-    py_modules=["cetacean"],
+    packages=find_packages(),
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Environment :: Web Environment",
