@@ -13,7 +13,7 @@ from .resource import Resource
 from .embedded_resource import EmbeddedResource
 from .embedded_resource_collection import EmbeddedResourceCollection
 
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 
 def Cetacean(raw):
     """Feed me a string containing HAL.
